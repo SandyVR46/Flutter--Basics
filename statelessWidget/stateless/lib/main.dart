@@ -25,17 +25,27 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Young Blood', style: TextStyle(color: Colors.black)),
       ),
+      body: Center(
+        child: Image.asset('assets/image1.png'), // Replace with your image path
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('Remember the words you told me....');
         },
         child: const Icon(Icons.music_note),
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.music_video), label: 'Music'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+        ],
       ),
     );
   }
